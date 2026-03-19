@@ -1,11 +1,19 @@
 import { Link } from 'react-router-dom'
+import Header from '../components/Header'
 
 function PaginaNaoEncontrada() {
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1>404 - Pagina nao encontrada</h1>
-      <Link to="/">Voltar para inicio</Link>
-    </main>
+    <>
+      <Header />
+
+      <main className="pagina pagina--404">
+        <h2>404</h2>
+        <p>A rota acessada nao existe neste projeto.</p>
+        <Link className="botao" to="/">
+          Voltar para a pagina inicial
+        </Link>
+      </main>
+    </>
   )
 }
 
