@@ -115,6 +115,7 @@ function PaginaInicio() {
         <section className="secao">
           <h2>Projetos cadastrados</h2>
 
+<<<<<<< HEAD
           <div className="ferramentas-home">
             <input
               value={busca}
@@ -138,6 +139,10 @@ function PaginaInicio() {
 
           {projetosExibidos.length === 0 ? (
             <p className="mensagem-vazia">Nenhum projeto ainda. Crie o primeiro acima.</p>
+=======
+          {projetos.length === 0 ? (
+            <p className="mensagem-vazia">NENHUM projeto ainda. Crie o primeiro acima.</p>
+>>>>>>> c9ce0b4c7ed7d23330e5294b6f7f26a7e82ded40
           ) : (
             <div className="grade-projetos">
               {projetosExibidos.map((projeto) => {

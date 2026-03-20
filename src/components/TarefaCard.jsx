@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -98,6 +99,27 @@ function TarefaCard({ tarefa, onDragStart, onDragEnd, estaArrastando, onSalvarEd
           </button>
         </div>
       )}
+=======
+import { Link } from 'react-router-dom'
+
+function TarefaCard({ tarefa }) {
+  const quantidadeLogs = Array.isArray(tarefa.logs) ? tarefa.logs.length : 0
+
+  return (
+    <article className={`tarefa-card tarefa-card--${tarefa.prioridade}`}>
+      <h4>{tarefa.titulo}</h4>
+
+      <p>
+        Prioridade: <strong>{tarefa.prioridade}</strong>
+      </p>
+
+      <p>{quantidadeLogs} atualizacoes registradas</p>
+
+      {/* Link direciona para tela de detalhes usando id dinamico */}
+      <Link className="botao" to={`/tarefa/${tarefa.id}`}>
+        Ver detalhes
+      </Link>
+>>>>>>> c9ce0b4c7ed7d23330e5294b6f7f26a7e82ded40
     </article>
   )
 }
