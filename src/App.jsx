@@ -9,6 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<PaginaInicio />} />
+      <Route path="/projetos" element={<PaginaInicio />} />
       <Route path="/projeto/:id" element={<PaginaProjeto />} />
       <Route path="/tarefa/:id" element={<PaginaDetalhes />} />
       <Route path="*" element={<PaginaNaoEncontrada />} />
