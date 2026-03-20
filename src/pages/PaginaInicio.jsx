@@ -37,7 +37,7 @@ function PaginaInicio() {
           <h2>Projetos cadastrados</h2>
 
           {projetos.length === 0 ? (
-            <p className="mensagem-vazia">Nenhum projeto ainda. Crie o primeiro acima.</p>
+            <p className="mensagem-vazia">NENHUM projeto ainda. Crie o primeiro acima.</p>
           ) : (
             <div className="grade-projetos">
               {projetos.map((projeto) => {
