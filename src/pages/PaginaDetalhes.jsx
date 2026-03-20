@@ -52,7 +52,7 @@ function PaginaDetalhes() {
           </p>
 
           <p>
-            Prioridade: <strong>{tarefa.prioridade}</strong>
+            Prioridade: <strong>{(tarefa.prioridade || 'media').toUpperCase()}</strong>
           </p>
 
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
