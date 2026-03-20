@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ColunaKanban from '../components/ColunaKanban'
 import FormNovaTarefa from '../components/FormNovaTarefa'
@@ -7,7 +7,8 @@ import { useTarefas } from '../contexts/TarefasContext'
 
 function PaginaProjeto() {
   const { id } = useParams()
-  const { tarefas, obterProjetoPorId } = useTarefas()
+  const { tarefas, obterProjetoPorId, moverTarefa, atualizarTarefa } = useTarefas()
+  const [tarefaArrastandoId, setTarefaArrastandoId] = useState(null)
 
   const projeto = obterProjetoPorId(id)
 
@@ -39,9 +40,33 @@ function PaginaProjeto() {
 
         <section className="kanban-grid">
           {/* Cada coluna recebe SOMENTE tarefas do status correspondente */}
-          <ColunaKanban titulo="A Fazer" status="a_fazer" tarefas={tarefasProjeto} />
-          <ColunaKanban titulo="Em Progresso" status="progresso" tarefas={tarefasProjeto} />
-          <ColunaKanban titulo="Concluido" status="concluido" tarefas={tarefasProjeto} />
+          <ColunaKanban
+            titulo="A Fazer"
+            status="a_fazer"
+            tarefas={tarefasProjeto}
+            moverTarefa={moverTarefa}
+            tarefaArrastandoId={tarefaArrastandoId}
+            setTarefaArrastandoId={setTarefaArrastandoId}
+            atualizarTarefa={atualizarTarefa}
+          />
+          <ColunaKanban
+            titulo="Em Progresso"
+            status="progresso"
+            tarefas={tarefasProjeto}
+            moverTarefa={moverTarefa}
+            tarefaArrastandoId={tarefaArrastandoId}
+            setTarefaArrastandoId={setTarefaArrastandoId}
+            atualizarTarefa={atualizarTarefa}
+          />
+          <ColunaKanban
+            titulo="Concluido"
+            status="concluido"
+            tarefas={tarefasProjeto}
+            moverTarefa={moverTarefa}
+            tarefaArrastandoId={tarefaArrastandoId}
+            setTarefaArrastandoId={setTarefaArrastandoId}
+            atualizarTarefa={atualizarTarefa}
+          />
         </section>
 
         <section className="secao secao--formulario">
