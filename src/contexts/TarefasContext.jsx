@@ -136,6 +136,39 @@ export function TarefasProvider({ children }) {
     )
   }
 
+  function atualizarTarefa(tarefaId, { titulo, prioridade }) {
+    setTarefas((estadoAtual) =>
+      estadoAtual.map((tarefa) => {
+        if (tarefa.id !== tarefaId) {
+          return tarefa
+        }
+
+        const proximoTitulo = titulo?.trim() || tarefa.titulo
+        const proximaPrioridade = prioridade || tarefa.prioridade
+        const houveAlteracao =
+          proximoTitulo !== tarefa.titulo || proximaPrioridade !== tarefa.prioridade
+
+        if (!houveAlteracao) {
+          return tarefa
+        }
+
+        return {
+          ...tarefa,
+          titulo: proximoTitulo,
+          prioridade: proximaPrioridade,
+          logs: [
+            ...(Array.isArray(tarefa.logs) ? tarefa.logs : []),
+            {
+              id: gerarId('log'),
+              texto: 'Tarefa atualizada no card do kanban',
+              criadoEm: new Date().toISOString(),
+            },
+          ],
+        }
+      }),
+    )
+  }
+
   function obterProjetoPorId(projetoId) {
     return projetos.find((projeto) => projeto.id === projetoId)
   }
@@ -151,6 +184,7 @@ export function TarefasProvider({ children }) {
     adicionarTarefa,
     removerTarefa,
     moverTarefa,
+    atualizarTarefa,
     adicionarLog,
     obterProjetoPorId,
     obterTarefaPorId,
